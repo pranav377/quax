@@ -1,0 +1,19 @@
+/* html {
+  -webkit-tap-highlight-color: transparent;
+} */
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #121212;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+}
