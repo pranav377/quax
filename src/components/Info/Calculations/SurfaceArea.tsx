@@ -10,8 +10,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
-import { Controller } from "react-hook-form";
-import MathJax from "better-react-mathjax/MathJax";
+import MathRenderer from "./MathRenderer";
 
 export default function SurfaceArea(props: { shape: ShapeInfo }) {
   const { shape } = props;
@@ -22,7 +21,7 @@ export default function SurfaceArea(props: { shape: ShapeInfo }) {
 
   return (
     <>
-      <MathJax hideUntilTypeset="every">{`$$ ${shape.surfaceAreaFormula[type]} $$`}</MathJax>
+      <MathRenderer equation={shape.surfaceAreaFormula[type]!} />
       <Typography color="grey.500" variant="subtitle2" mb={1}>
         All measurements should be in the same unit
       </Typography>

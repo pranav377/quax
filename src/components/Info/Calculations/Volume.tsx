@@ -6,7 +6,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import LoadingButton from "@mui/lab/LoadingButton";
-import MathJax from "better-react-mathjax/MathJax";
+import MathRenderer from "./MathRenderer";
 
 export default function Volume(props: { shape: ShapeInfo }) {
   const { shape } = props;
@@ -16,7 +16,7 @@ export default function Volume(props: { shape: ShapeInfo }) {
 
   return (
     <>
-      <MathJax hideUntilTypeset="every">{`$$ ${shape.volumeFormula} $$`}</MathJax>
+      <MathRenderer equation={shape.volumeFormula} />
       <Typography color="grey.500" variant="subtitle2" mb={1}>
         All measurements should be in the same unit
       </Typography>
