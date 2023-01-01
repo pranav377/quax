@@ -6,7 +6,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./components/Navbar";
 import ShapesInfo from "./components/Info";
-import Box from "@mui/material/Box";
+import MathJaxContext from "better-react-mathjax/MathJaxContext";
 
 const darkTheme = createTheme({
   palette: {
@@ -20,7 +20,9 @@ function App() {
       <CssBaseline />
 
       <Navbar />
-      <ShapesInfo />
+      <MathJaxContext>
+        <ShapesInfo />
+      </MathJaxContext>
     </ThemeProvider>
   );
 }

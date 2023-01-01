@@ -14,6 +14,11 @@ export type ShapeInfo = {
     for: "surfaceArea" | "volume" | "both";
     type: "number" | "type";
   }>;
+  surfaceAreaFormula: {
+    curved?: string;
+    total: string;
+  };
+  volumeFormula: string;
 };
 
 const color = "#585858";
@@ -40,6 +45,10 @@ const ShapesData: Array<ShapeInfo> = [
         type: "number",
       },
     ],
+    volumeFormula: `V = a^3`,
+    surfaceAreaFormula: {
+      total: `A = 6a^2`,
+    },
   },
   {
     name: "Cuboid",
@@ -72,6 +81,10 @@ const ShapesData: Array<ShapeInfo> = [
         type: "number",
       },
     ],
+    volumeFormula: `V = l*b*h`,
+    surfaceAreaFormula: {
+      total: `A = 2(l*b + b*h + h*l)`,
+    },
   },
   {
     name: "Cylinder",
@@ -108,6 +121,11 @@ const ShapesData: Array<ShapeInfo> = [
         type: "number",
       },
     ],
+    volumeFormula: `V = \\pi r^2 h`,
+    surfaceAreaFormula: {
+      curved: `A = 2\\pi rh`,
+      total: `A = 2\\pi r(r+h)`,
+    },
   },
   {
     name: "Cone",
@@ -144,6 +162,11 @@ const ShapesData: Array<ShapeInfo> = [
         type: "number",
       },
     ],
+    volumeFormula: `V = \\frac{\\pi r^2 h}{3}`,
+    surfaceAreaFormula: {
+      curved: `A = \\pi r l`,
+      total: `A = \\pi r (r + l)`,
+    },
   },
   {
     name: "Sphere",
@@ -164,6 +187,10 @@ const ShapesData: Array<ShapeInfo> = [
         type: "number",
       },
     ],
+    volumeFormula: `V = {4 \\over 3}{\\pi r^3}`,
+    surfaceAreaFormula: {
+      total: `A = 4\\pi r^2`,
+    },
   },
 ];
 

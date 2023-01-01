@@ -11,19 +11,18 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import { Controller } from "react-hook-form";
+import MathJax from "better-react-mathjax/MathJax";
 
 export default function SurfaceArea(props: { shape: ShapeInfo }) {
   const { shape } = props;
-  const { register, handleSubmit, control } = useForm({
-    defaultValues: {
-      type: "total",
-    },
-  });
+  const { register, handleSubmit } = useForm();
+  const [type, setType] = useState<"total" | "curved">("total");
   const [surfaceArea, setSurfaceArea] = useState(0);
   const [loading, setLoading] = useState(false);
 
   return (
     <>
+      <MathJax hideUntilTypeset="every">{`$$ ${shape.surfaceAreaFormula[type]} $$`}</MathJax>
       <Typography color="grey.500" variant="subtitle2" mb={1}>
         All measurements should be in the same unit
       </Typography>
@@ -31,14 +30,11 @@ export default function SurfaceArea(props: { shape: ShapeInfo }) {
         onSubmit={handleSubmit((data: { [key: string]: any }) => {
           setSurfaceArea(0);
           setLoading(true);
-          const newData: { [key: string]: number } = {};
+          const newData: { [key: string]: number | string } = {};
           Object.keys(data).map((key) => {
-            if (key !== "type") {
-              newData[key] = parseFloat(data[key]);
-            } else {
-              newData[key] = data[key];
-            }
+            newData[key] = parseFloat(data[key]);
           });
+          newData["type"] = type;
 
           const volume = shape.surfaceArea(newData);
 
@@ -72,30 +68,26 @@ export default function SurfaceArea(props: { shape: ShapeInfo }) {
             );
           } else if (field.type === "type") {
             return (
-              <FormControl key={idx}>
-                <Controller
-                  rules={{ required: true }}
-                  control={control}
-                  name="type"
-                  render={({ field }) => (
-                    <RadioGroup
-                      row
-                      aria-labelledby="surface-area-type-label"
-                      {...field}
-                    >
-                      <FormControlLabel
-                        value="total"
-                        control={<Radio />}
-                        label="Total"
-                      />
-                      <FormControlLabel
-                        value="curved"
-                        control={<Radio />}
-                        label="Curved"
-                      />
-                    </RadioGroup>
-                  )}
-                />
+              <FormControl key={idx} required>
+                <RadioGroup
+                  row
+                  aria-labelledby="surface-area-type-label"
+                  value={type}
+                  onChange={(e) =>
+                    setType(e.target.value as "total" | "curved")
+                  }
+                >
+                  <FormControlLabel
+                    value="total"
+                    control={<Radio />}
+                    label="Total"
+                  />
+                  <FormControlLabel
+                    value="curved"
+                    control={<Radio />}
+                    label="Curved"
+                  />
+                </RadioGroup>
               </FormControl>
             );
           }
