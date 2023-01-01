@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./components/Navbar";
 import ShapesInfo from "./components/Info";
+import Box from "@mui/material/Box";
 
 const darkTheme = createTheme({
   palette: {
@@ -17,6 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+
       <Navbar />
       <ShapesInfo />
     </ThemeProvider>
