@@ -1,7 +1,5 @@
-import { MathJax } from "better-react-mathjax";
+import { MathComponent } from "mathjax-react";
 
 export default function MathRenderer(props: { equation: string }) {
-  return (
-    <MathJax hideUntilTypeset="first">{`$$ ${props.equation} $$`}</MathJax>
-  );
+  return <MathComponent tex={String.raw` ${props.equation} `} />;
 }

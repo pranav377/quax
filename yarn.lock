@@ -623,13 +623,6 @@ babel-plugin-macros@^3.1.0:
     cosmiconfig "^7.0.0"
     resolve "^1.19.0"
 
-better-react-mathjax@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/better-react-mathjax/-/better-react-mathjax-2.0.2.tgz#99f98fd840271c0b81b679a8cf32f80d99ba0afd"
-  integrity sha512-GSU/c+LhnMVClkduWpO7fr9Ac2KMOxWs/ePwdFgpffidK3Zg9Vyd3scO6XZbd2QgMUcKnpjEG6hE1sM/EFekSQ==
-  dependencies:
-    mathjax-full "^3.2.2"
-
 callsites@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
@@ -870,7 +863,7 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-mathjax-full@^3.2.2:
+mathjax-full@^3.0.4, mathjax-full@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.2.2.tgz#43f02e55219db393030985d2b6537ceae82f1fa7"
   integrity sha512-+LfG9Fik+OuI8SLwsiR02IVdjcnRCy5MufYLi0C3TdMT56L/pjB0alMVGgoWJF8pN9Rc7FESycZB9BMNWIid5w==
@@ -879,6 +872,13 @@ mathjax-full@^3.2.2:
     mhchemparser "^4.1.0"
     mj-context-menu "^0.6.1"
     speech-rule-engine "^4.0.6"
+
+mathjax-react@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/mathjax-react/-/mathjax-react-2.0.1.tgz#755a12aaff2b18520d84984e2aa55698100c39e7"
+  integrity sha512-bEDPfGTm8Bi4VylmFbg5SGCN/BzDCiTJMTXDalAFDnsTwAhDdJgBRWlO5nHRtj+3/bOSfYF7wak7qmRN6XbPOw==
+  dependencies:
+    mathjax-full "^3.0.4"
 
 mhchemparser@^4.1.0:
   version "4.1.1"
